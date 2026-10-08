@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>page3</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 16px;
+            background-color: #0d1b2a; /* نفس لون الخلفية الغامق */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            min-height: 100dvh;
+            font-family: sans-serif;
+        }
+
+        /* حاوية الفيديو والسهم */
+        .card-container {
+            width: 100%;
+            max-width: 420px; /* حجم مناسب للموبايل، وعلى الكمبيوتر يفضل صغير */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* إطار الفيديو */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-wrapper video {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 65vh;
+            max-height: 65dvh; /* ما يزيدش عن 65% من طول الشاشة */
+            object-fit: contain;
+        }
+
+        /* زر التشغيل فوق الفيديو (لأن المتصفح لازم المستخدم يضغط عشان الصوت يشتغل) */
+        .play-btn {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 72px;
+            height: 72px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0d1b2a;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .play-btn.hidden {
+            display: none;
+        }
+
+        /* زر السهم للتنقل */
+        .next-arrow {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #0d1b2a;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: bounce 2s infinite;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .next-arrow:hover,
+        .next-arrow:active {
+            background-color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .next-arrow:focus-visible,
+        .play-btn:focus-visible {
+            outline: 3px solid #ffffff;
+            outline-offset: 3px;
+        }
+
+        /* حركة ترددية لطيفة للسهم */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-8px);
+            }
+            60% {
+                transform: translateY(-4px);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .next-arrow {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+
+        <div class="video-wrapper">
+            <!-- الفيديو بصوت: بدون muted، ومعاه أزرار تحكم -->
+            <video id="myVideo" playsinline controls preload="metadata" poster="image.png">
+                <source src="uploads/فيديو عبد ميلاد عمر.mp4" type="video/mp4">
+            </video>
+            <button id="playBtn" class="play-btn" aria-label="تشغيل الفيديو">▶</button>
+        </div>
+
+        <!-- رابط السهم الذي ينقل للصفحة التالية -->
+        <a href="page5.html" class="next-arrow" title="الصفحة التالية" aria-label="الصفحة التالية">
+            ➔
+        </a>
+
+    </div>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const playBtn = document.getElementById('playBtn');
+
+        // الضغط على زر التشغيل يشغل الفيديو بالصوت
+        playBtn.addEventListener('click', () => {
+            video.play();
+        });
+
+        video.addEventListener('play', () => {
+            playBtn.classList.add('hidden');
+        });
+
+        video.addEventListener('pause', () => {
+            playBtn.classList.remove('hidden');
+        });
+    </script>
+
+</body>
+</html>

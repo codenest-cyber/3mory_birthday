@@ -1,0 +1,45 @@
+<!-- انسخ الملف كله والصقه في الصفحة في المكان اللي عايزاه. الصور في فولدر images باسم 1.jpg لحد 6.jpg -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
+.rs{--rs-maroon:#0d335b;--rs-cream:#d9dde2;--rs-gold:#9aa3ad;
+  background:var(--rs-maroon);color:var(--rs-cream);padding:72px 0 40px;
+  font:400 1.3rem/1.7 'Amiri',Georgia,serif}
+.rs,.rs *{box-sizing:border-box}
+.rs h2{margin:0 0 12px;padding:0 6vw;font:700 clamp(2.1rem,9vw,3.4rem)/1.4 'Amiri',Georgia,serif;color:var(--rs-cream)}
+.rs-hint{margin:0;padding:0 6vw;font-size:1rem;opacity:.8}
+.rs-strip{display:flex;gap:30px;overflow-x:auto;scroll-snap-type:x mandatory;padding:34px 10vw 20px;scrollbar-width:none}
+.rs-strip::-webkit-scrollbar{display:none}
+.rs-item{flex:0 0 192px;margin:0;scroll-snap-align:center;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+.rs-item:nth-child(odd){transform:rotate(-3deg)}
+.rs-item:nth-child(even){transform:rotate(3deg);margin-top:16px}
+/* stamp frame with scalloped edge */
+.rs-stamp{width:192px;padding:12px;background:var(--rs-cream);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,radial-gradient(circle 6px at 8px 8px,#0000 98%,#000) -8px -8px/16px 16px;
+  mask:linear-gradient(#000 0 0) content-box,radial-gradient(circle 6px at 8px 8px,#0000 98%,#000) -8px -8px/16px 16px}
+.rs-photo{position:relative;width:168px;height:216px;display:grid;place-items:center;color:var(--rs-maroon);font-size:1rem;
+  background:repeating-linear-gradient(45deg,#c3c9d0,#c3c9d0 10px,#d6dadf 10px,#d6dadf 20px)}
+.rs-photo::before{content:"أضيفي صورة"}
+.rs-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rs-item p{margin:16px 0 0;padding:0 4px;font-size:1.25rem;line-height:1.7}
+@media(min-width:760px){.rs-strip{justify-content:center;padding-inline:6vw}}
+.rs-next{display:grid;place-items:center;width:56px;height:56px;margin:28px auto 0;border:2px solid var(--rs-cream);border-radius:50%;color:var(--rs-cream);text-decoration:none;transition:background .2s,color .2s}
+.rs-next:hover,.rs-next:focus-visible{background:var(--rs-cream);color:var(--rs-maroon)}
+.rs-next svg{width:24px;height:24px}
+</style>
+
+<section class="rs" id="reasons" dir="rtl" lang="ar">
+  <h2>بحبككك وبحب كل ذكرياتنا سوا</h2>
+  <!-- <p class="rs-hint">هابي بيرث داي يحياتي .  .</p> -->
+  <div class="rs-strip">
+    <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="uploads/4.2.jpeg" alt="" onerror="this.remove()"></div></div><p> احلي يوم واحلي صدفه في حياتي </p></figure>
+    <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="uploads/4.3.jpeg" alt="" onerror="this.remove()"></div></div><p>من ساعة ما عرفتك وكل حاجة بقت أحلى.</p></figure>
+    <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="uploads/4.4.jpeg" alt="" onerror="this.remove()"></div></div><p> يارب اشوفك دايما في احسن حال وانجح واحد في الدنيا كلها</p></figure>
+    <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="uploads/4.1.jpeg" alt="" onerror="this.remove()"></div></div><p>MY Safe Place</p></figure>
+    <!-- <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="images/5.jpg" alt="" onerror="this.remove()"></div></div><p>مهما الدنيا تزحم، قلبي بيهدى أول ما أشوفك.</p></figure> -->
+    <figure class="rs-item"><div class="rs-stamp"><div class="rs-photo"><img src="uploads/Page 4.jpeg" alt="" onerror="this.remove()"></div></div><p>ربنا يخليك ليا ويارب نحقق كل احلامنا سوا.</p></figure>
+  </div>
+  <!-- السهم: غيّري href للصفحة اللي بعدها (مثلا next.html) أو لقسم في نفس الصفحة (مثلا #wishes) -->
+  <a class="rs-next" href="page4.html" aria-label="الصفحة التالية">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+  </a>
+</section>

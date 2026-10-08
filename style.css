@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 20px;
+    background-color:  #0d335b;
+    overflow-x: hidden;
+}
+
+.passcode-wrapper {
+    width: fit-content;
+    max-width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 45px;
+    direction: ltr;
+    gap: 40px;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image {
+    width: 320px;
+    height: 420px;
+    max-width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+.passcode-container {
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+.passcode-container h2 {
+    color: #333;
+    font-size: 2.2em;
+    margin: 0 0 20px;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.dot.filled {
+    background-color: lch(36 21.38 269);
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.95em;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.num-btn {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 18px 10px;
+    min-height: 70px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.num-btn:active {
+    background-color: #e2e8f0;
+}
+
+.action-btn {
+    width: 100%;
+    background-color: lch(36 21.38 269);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 18px 10px;
+    min-height: 70px;
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:active {
+    opacity: 0.85;
+}
+
+
+/* =========================
+   📱 MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+        align-items: center;
+    }
+
+    .passcode-wrapper {
+        width: 100%;
+        max-width: 390px;
+        padding: 22px 18px;
+        border-radius: 22px;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .profile-image {
+        width: 170px;
+        height: 220px;
+        border-radius: 18px;
+    }
+
+    .passcode-container {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .passcode-container h2 {
+        font-size: 1.7em;
+        margin-bottom: 18px;
+    }
+
+    .dots-container {
+        gap: 9px;
+        margin-bottom: 20px;
+    }
+
+    .dot {
+        width: 15px;
+        height: 15px;
+        flex-basis: 15px;
+    }
+
+    .error-message {
+        font-size: 0.85em;
+        margin-bottom: 12px;
+    }
+
+    .numpad {
+        gap: 10px;
+    }
+
+    .num-btn,
+    .action-btn {
+        min-height: 60px;
+        padding: 12px 8px;
+    }
+
+    .num-btn {
+        font-size: 1.4em;
+    }
+
+    .action-btn {
+        font-size: 1em;
+    }
+}
+
+
+/* =========================
+   📱 SMALL PHONES
+   ========================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .passcode-wrapper {
+        padding: 18px 14px;
+        gap: 15px;
+    }
+
+    .profile-image {
+        width: 145px;
+        height: 190px;
+    }
+
+    .passcode-container {
+        max-width: 280px;
+    }
+
+    .passcode-container h2 {
+        font-size: 1.5em;
+    }
+
+    .dots-container {
+        gap: 7px;
+    }
+
+    .dot {
+        width: 13px;
+        height: 13px;
+        flex-basis: 13px;
+    }
+
+    .numpad {
+        gap: 8px;
+    }
+
+    .num-btn,
+    .action-btn {
+        min-height: 55px;
+    }
+}* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 20px;
+    background-color: #0d335b;
+    overflow-x: hidden;
+}
+
+.passcode-wrapper {
+    width: fit-content;
+    max-width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 45px;
+    direction: ltr;
+    gap: 40px;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image {
+    width: 320px;
+    height: 420px;
+    max-width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+}
+
+.passcode-container {
+    text-align: center;
+    width: 320px;
+    max-width: 100%;
+}
+
+.passcode-container h2 {
+    color: #333;
+    font-size: 2.2em;
+    margin: 0 0 20px;
+}
+
+.dots-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.dot {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    background-color: #e2e8f0;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.dot.filled {
+    background-color: lch(36 21.38 269);
+}
+
+.error-message {
+    color: #e53e3e;
+    font-size: 0.95em;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.numpad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.num-btn {
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 18px 10px;
+    min-height: 70px;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.num-btn:active {
+    background-color: #e2e8f0;
+}
+
+.action-btn {
+    width: 100%;
+    background-color: lch(36 21.38 269);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 18px 10px;
+    min-height: 70px;
+    font-size: 1.15em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.action-btn:active {
+    opacity: 0.85;
+}
+
+
+/* =========================
+   📱 MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+        align-items: center;
+    }
+
+    .passcode-wrapper {
+        width: 100%;
+        max-width: 390px;
+        padding: 22px 18px;
+        border-radius: 22px;
+        gap: 20px;
+        flex-direction: column;
+    }
+
+    .profile-image {
+        width: 170px;
+        height: 220px;
+        border-radius: 18px;
+    }
+
+    .passcode-container {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .passcode-container h2 {
+        font-size: 1.7em;
+        margin-bottom: 18px;
+    }
+
+    .dots-container {
+        gap: 9px;
+        margin-bottom: 20px;
+    }
+
+    .dot {
+        width: 15px;
+        height: 15px;
+        flex-basis: 15px;
+    }
+
+    .error-message {
+        font-size: 0.85em;
+        margin-bottom: 12px;
+    }
+
+    .numpad {
+        gap: 10px;
+    }
+
+    .num-btn,
+    .action-btn {
+        min-height: 60px;
+        padding: 12px 8px;
+    }
+
+    .num-btn {
+        font-size: 1.4em;
+    }
+
+    .action-btn {
+        font-size: 1em;
+    }
+}
+
+
+/* =========================
+   📱 SMALL PHONES
+   ========================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .passcode-wrapper {
+        padding: 18px 14px;
+        gap: 15px;
+    }
+
+    .profile-image {
+        width: 145px;
+        height: 190px;
+    }
+
+    .passcode-container {
+        max-width: 280px;
+    }
+
+    .passcode-container h2 {
+        font-size: 1.5em;
+    }
+
+    .dots-container {
+        gap: 7px;
+    }
+
+    .dot {
+        width: 13px;
+        height: 13px;
+        flex-basis: 13px;
+    }
+
+    .numpad {
+        gap: 8px;
+    }
+
+    .num-btn,
+    .action-btn {
+        min-height: 55px;
+    }
+}
